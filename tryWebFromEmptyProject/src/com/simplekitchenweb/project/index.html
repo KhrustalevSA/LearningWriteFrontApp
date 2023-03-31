@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        h3 {
+            font-style: italic;
+        }
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://code.angularjs.org/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.8.0/angular-messages.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>The Angular Lessons</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div ng-controller="mainController">
+           <div class="panel panel-default" ng-repeat="item in items">
+               <div class="panel-heading">
+                   <strong>ID: {{item.id}}</strong>
+               </div>
+               <div class="panel-body">
+                   {{item.name}}
+               </div>
+           </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" style="background-color: aquamarine">
+        <div ng-controller="fifthLessonController">
+            <h1>Fifth lesson</h1>
+            <h3>ng-if ng-show ng-hide</h3>
+            <input type="text" ng-model="handle">
+            <h2>http://vk.com/{{ lowerCaseHandle() }}</h2>
+            <div class="alert" ng-if="handle.length !== charactersCount">
+                <div class="alert-warning" ng-show="handle.length < charactersCount">
+                    You have typed less than 5 characters!
+                </div>
+                <div class="alert-danger" ng-show="handle.length > charactersCount">
+                    Yot have typed more than 5 characters!
+                </div>
+            </div>
+            <h3>ng-repeat</h3>
+            <ul>
+                <li ng-repeat="rule in rules">{{ rule.ruleName }}</li>
+            </ul>
+            <h3>ng-class</h3>
+            <div class="alert" ng-class="{'alert-warning': handle.length < charactersCount,
+            'alert-danger': handle.length > charactersCount}"
+                 ng-if="handle.length !== charactersCount">
+                <div ng-show="handle.length < charactersCount">
+                    You have typed less than 5 characters!
+                </div>
+                <div ng-show="handle.length > charactersCount">
+                    Yot have typed more than 5 characters!
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div ng-controller="fourLessonController">
+            <h1>{{ title }}</h1>
+            <input type="text" ng-model="handle">
+            <h2>https://vk.com/{{ lowerCaseHandle() }}</h2>
+            <h1>My name is {{ name + ' ' + surname }}. I work in {{company}}.</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div ng-controller="coolFieldController">
+            <h1>{{ thisIsTitle }}</h1>
+            <form name="validationForm">
+                <label>
+                    <input type="text" ng-model="name" name="nameField" minlength="5" required
+                    placeholder="https://www.youtube.com/watch?v=3WT56BaoESc&list=PL-ss7IpVOiB5DKGi5wcSPsF1OWcJSW791&index=4">
+                </label>
+                <div ng-messages="validationForm.nameField.$error">
+                    <div class="alert alert-warning" ng-message="minlength">Минимальная длина 5 символов</div>
+                    <div class="alert alert-danger" ng-message="required">Поле обязательно для заполнения</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
