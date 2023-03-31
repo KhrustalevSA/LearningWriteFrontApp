@@ -1,6 +1,10 @@
 var myApp = angular.module('myApp', ['ngMessages']);
 
 myApp.controller('mainController', function ($scope, $filter, $timeout, $log){
+
+});
+
+myApp.controller('sixthLessonController', function ($scope, $filter, $timeout, $log){
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function(){
