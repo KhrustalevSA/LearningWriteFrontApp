@@ -32,16 +32,17 @@
     <br>
     <br>
     <br>
-    <div class="container">
+    <div class="container" style="background-color: aqua">
         <div ng-controller="sixthLessonController">
-           <div class="panel" ng-repeat="item in items">
-               <div class="panel-heading">
-                   <strong>ID: {{item.id}}</strong>
-               </div>
-               <div class="panel-body">
-                   {{item.name}}
-               </div>
-           </div>
+            <h1>Sixth lesson</h1>
+            <div class="panel" ng-repeat="item in items">
+                <div class="panel-heading">
+                    <strong>ID: {{item.id}}</strong>
+                 </div>
+                <div class="panel-body">
+                    {{item.name}}
+                </div>
+            </div>
         </div>
     </div>
     <br>
